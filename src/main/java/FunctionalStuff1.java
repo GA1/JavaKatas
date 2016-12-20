@@ -7,4 +7,9 @@ public class FunctionalStuff1 {
         return words.stream().filter(s -> s.length() % 2 == 0).collect(Collectors.toList());
     }
 
+    public List<String> toUpperCase(List<String> words) {
+        return words.stream().map((String s) -> s.toUpperCase()).collect(Collectors.toList());
+    }
+    
+
 }
