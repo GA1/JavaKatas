@@ -10,6 +10,6 @@ public class FunctionalStuff1 {
     public List<String> toUpperCase(List<String> words) {
         return words.stream().map((String s) -> s.toUpperCase()).collect(Collectors.toList());
     }
-    
+
 
 }

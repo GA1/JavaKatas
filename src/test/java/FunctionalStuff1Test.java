@@ -27,17 +27,19 @@ public class FunctionalStuff1Test {
 
     @Test
     public void toUpperCaseForALetter() {
-        result = testSubject.removeWordWithOddLength(Arrays.asList("a"));
+        result = testSubject.toUpperCase(Arrays.asList("a"));
         assertTrue(result.contains("A"));
         assertEquals(1, result.size());
     }
 
     @Test
-    public void toUpperCaseForALetter() {
-        result = testSubject.removeWordWithOddLength(Arrays.asList("a"));
-        assertTrue(result.contains("A"));
-        assertEquals(1, result.size());
+    public void toUpperCaseForTwoWords() {
+        result = testSubject.toUpperCase(Arrays.asList("aAa", "Bbb"));
+        assertTrue(result.contains("AAA"));
+        assertTrue(result.contains("BBB"));
+        assertEquals(2, result.size());
     }
+
 
 
 }
