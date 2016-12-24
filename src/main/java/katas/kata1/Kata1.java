@@ -1,8 +1,3 @@
-/**
- * Copyright © 2016, Oracle and/or its affiliates. All rights reserved.
- *
- * JDK 8 MOOC Lesson 1 homework
- */
 package katas.kata1;
 
 import java.util.ArrayList;
@@ -13,9 +8,6 @@ import java.util.TreeMap;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-/**
- * @author Speakjava (Simon Ritter)
- */
 public class Kata1 {
   /**
    * Run the exercises to ensure we got the right answers
