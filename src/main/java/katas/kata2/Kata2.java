@@ -12,13 +12,11 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * @author Speakjava (Simon Ritter)
  */
-class Lesson2 {
+class Kata2 {
     private static final String WORD_REGEXP = "[- .:,]+";
 
     /**
@@ -135,7 +133,7 @@ class Lesson2 {
      * @throws IOException If file access does not work
      */
     public static void main(String[] args) throws IOException {
-        Lesson2 lesson = new Lesson2();
+        Kata2 lesson = new Kata2();
         lesson.runExercises();
     }
 }
