@@ -135,8 +135,8 @@ class Kata2 {
      * @throws IOException If file access does not work
      */
     public static void main(String[] args) throws IOException {
-        Kata2 lesson = new Kata2();
-        lesson.runExercises();
+        Kata2 kata2 = new Kata2();
+        kata2.runExercises();
     }
 }
 
