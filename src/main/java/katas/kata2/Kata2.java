@@ -13,6 +13,7 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @author Speakjava (Simon Ritter)
@@ -50,10 +51,8 @@ class Kata2 {
      * lower case and print them out.
      */
     private void exercise1() {
-        List<String> list = Arrays.asList(
-                "The", "Quick", "BROWN", "Fox", "Jumped", "Over", "The", "LAZY", "DOG");
+        List<String> list = Arrays.asList("The", "Quick", "BROWN", "Fox", "Jumped", "Over", "The", "LAZY", "DOG");
         System.out.println(list.stream().map(s -> s.toLowerCase()).collect(Collectors.joining(", ")));
-    /* YOUR CODE HERE */
     }
 
     /**
@@ -63,10 +62,8 @@ class Kata2 {
      * odd length
      */
     private void exercise2() {
-        List<String> list = Arrays.asList(
-                "The", "Quick", "BROWN", "Fox", "Jumped", "Over", "The", "LAZY", "DOG");
-
-    /* YOUR CODE HERE */
+        List<String> list = Arrays.asList("The", "Quick", "BROWN", "Fox", "Jumped", "Over", "The", "LAZY", "DOG");
+        System.out.println(list.stream().filter(x -> x.length() % 2 == 0).collect(Collectors.joining(", ")));
     }
 
     /**
@@ -76,10 +73,8 @@ class Kata2 {
      * where each word is separated by a hyphen (-). Print the resulting string.
      */
     private void exercise3() {
-        List<String> list = Arrays.asList(
-                "The", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog");
-
-    /* YOUR CODE HERE */
+        List<String> list = Arrays.asList("The", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog");
+        System.out.println(list.stream().skip(1).limit(3).collect(Collectors.joining("-")));
     }
 
     /**
@@ -87,8 +82,8 @@ class Kata2 {
      */
     private void exercise4() throws IOException {
         try (BufferedReader reader = Files.newBufferedReader(
-                Paths.get("SonnetI.txt"), StandardCharsets.UTF_8)) {
-      /* YOUR CODE HERE */
+                Paths.get("src/main/resources/SonnetI.txt"), StandardCharsets.UTF_8)) {
+          System.out.println(reader.lines().count());
         }
     }
 
@@ -100,8 +95,8 @@ class Kata2 {
      */
     private void exercise5() throws IOException {
         try (BufferedReader reader = Files.newBufferedReader(
-                Paths.get("SonnetI.txt"), StandardCharsets.UTF_8)) {
-      /* YOUR CODE HERE */
+                Paths.get("src/main/resources/SonnetI.txt"), StandardCharsets.UTF_8)) {
+            System.out.println(reader.lines().flatMap(s -> Stream.of(s.split(WORD_REGEXP))).distinct().collect(Collectors.joining(" ")));
         }
     }
 
@@ -112,8 +107,8 @@ class Kata2 {
      */
     private void exercise6() throws IOException {
         try (BufferedReader reader = Files.newBufferedReader(
-                Paths.get("SonnetI.txt"), StandardCharsets.UTF_8)) {
-      /* YOUR CODE HERE */
+                Paths.get("src/main/resources/SonnetI.txt"), StandardCharsets.UTF_8)) {
+            System.out.println(reader.lines().flatMap(s -> Stream.of(s.split(WORD_REGEXP))).map(s -> s.toLowerCase()).distinct().sorted().collect(Collectors.joining(" ")));
         }
     }
 
@@ -122,8 +117,14 @@ class Kata2 {
      */
     private void exercise7() throws IOException {
         try (BufferedReader reader = Files.newBufferedReader(
-                Paths.get("SonnetI.txt"), StandardCharsets.UTF_8)) {
-      /* YOUR CODE HERE */
+                Paths.get("src/main/resources/SonnetI.txt"), StandardCharsets.UTF_8)) {
+            System.out.println(reader.
+                    lines().
+                    flatMap(s -> Stream.of(s.split(WORD_REGEXP))).
+                    map(s -> s.toLowerCase()).distinct().
+                    sorted().
+                    sorted((s1, s2) -> s1.length() - s2.length()).
+                    collect(Collectors.joining(" ")));
         }
     }
 
