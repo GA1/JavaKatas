@@ -1,2 +1,2 @@
 run a main:
-vn exec:java -Dexec.mainClass="katas.kata1.Kata1"
+mvn exec:java -Dexec.mainClass="katas.kata1.Kata1"

@@ -12,6 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Speakjava (Simon Ritter)
@@ -51,7 +52,7 @@ class Kata2 {
     private void exercise1() {
         List<String> list = Arrays.asList(
                 "The", "Quick", "BROWN", "Fox", "Jumped", "Over", "The", "LAZY", "DOG");
-
+        System.out.println(list.stream().map(s -> s.toLowerCase()).collect(Collectors.joining(", ")));
     /* YOUR CODE HERE */
     }
 
