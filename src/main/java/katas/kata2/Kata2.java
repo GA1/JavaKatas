@@ -52,7 +52,7 @@ class Kata2 {
      */
     private void exercise1() {
         List<String> list = Arrays.asList("The", "Quick", "BROWN", "Fox", "Jumped", "Over", "The", "LAZY", "DOG");
-        System.out.println(list.stream().map(s -> s.toLowerCase()).collect(Collectors.joining(", ")));
+        System.out.println(list.stream().map(String::toLowerCase).collect(Collectors.joining(", ")));
     }
 
     /**
@@ -63,7 +63,10 @@ class Kata2 {
      */
     private void exercise2() {
         List<String> list = Arrays.asList("The", "Quick", "BROWN", "Fox", "Jumped", "Over", "The", "LAZY", "DOG");
-        System.out.println(list.stream().filter(x -> x.length() % 2 == 0).collect(Collectors.joining(", ")));
+        System.out.println(list.stream().
+                map(String::toLowerCase).
+                filter(x -> x.length() % 2 == 1).
+                collect(Collectors.joining(", ")));
     }
 
     /**
@@ -74,7 +77,10 @@ class Kata2 {
      */
     private void exercise3() {
         List<String> list = Arrays.asList("The", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog");
-        System.out.println(list.stream().skip(1).limit(3).collect(Collectors.joining("-")));
+        System.out.println(list.stream().
+                skip(1).
+                limit(3).
+                collect(Collectors.joining("-")));
     }
 
     /**
@@ -96,7 +102,10 @@ class Kata2 {
     private void exercise5() throws IOException {
         try (BufferedReader reader = Files.newBufferedReader(
                 Paths.get("src/main/resources/kata2.txt"), StandardCharsets.UTF_8)) {
-            System.out.println(reader.lines().flatMap(s -> Stream.of(s.split(WORD_REGEXP))).distinct().collect(Collectors.joining(" ")));
+            System.out.println(reader.
+                    lines().
+                    flatMap(line -> Stream.of(line.split(WORD_REGEXP)))
+                    .distinct().collect(Collectors.joining(" ")));
         }
     }
 
@@ -108,7 +117,10 @@ class Kata2 {
     private void exercise6() throws IOException {
         try (BufferedReader reader = Files.newBufferedReader(
                 Paths.get("src/main/resources/kata2.txt"), StandardCharsets.UTF_8)) {
-            System.out.println(reader.lines().flatMap(s -> Stream.of(s.split(WORD_REGEXP))).map(s -> s.toLowerCase()).distinct().sorted().collect(Collectors.joining(" ")));
+            System.out.println(reader.
+                    lines().
+                    flatMap(line -> Stream.of(line.split(WORD_REGEXP))).
+                    map(String::toLowerCase).distinct().sorted().collect(Collectors.joining(" ")));
         }
     }
 
