@@ -79,7 +79,6 @@ public class Kata1 {
     map.put("b", 2);
     map.put("a", 1);
     System.out.println(map.entrySet().stream().map(p -> "(" + p.getKey() + ", " + p.getValue() + ")").collect(Collectors.joining(", ")));
-    /* YOUR CODE HERE */
   }
 
   /**

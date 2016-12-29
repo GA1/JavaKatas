@@ -82,7 +82,7 @@ class Kata2 {
      */
     private void exercise4() throws IOException {
         try (BufferedReader reader = Files.newBufferedReader(
-                Paths.get("src/main/resources/SonnetI.txt"), StandardCharsets.UTF_8)) {
+                Paths.get("src/main/resources/kata2.txt"), StandardCharsets.UTF_8)) {
           System.out.println(reader.lines().count());
         }
     }
@@ -95,7 +95,7 @@ class Kata2 {
      */
     private void exercise5() throws IOException {
         try (BufferedReader reader = Files.newBufferedReader(
-                Paths.get("src/main/resources/SonnetI.txt"), StandardCharsets.UTF_8)) {
+                Paths.get("src/main/resources/kata2.txt"), StandardCharsets.UTF_8)) {
             System.out.println(reader.lines().flatMap(s -> Stream.of(s.split(WORD_REGEXP))).distinct().collect(Collectors.joining(" ")));
         }
     }
@@ -107,7 +107,7 @@ class Kata2 {
      */
     private void exercise6() throws IOException {
         try (BufferedReader reader = Files.newBufferedReader(
-                Paths.get("src/main/resources/SonnetI.txt"), StandardCharsets.UTF_8)) {
+                Paths.get("src/main/resources/kata2.txt"), StandardCharsets.UTF_8)) {
             System.out.println(reader.lines().flatMap(s -> Stream.of(s.split(WORD_REGEXP))).map(s -> s.toLowerCase()).distinct().sorted().collect(Collectors.joining(" ")));
         }
     }
@@ -117,7 +117,7 @@ class Kata2 {
      */
     private void exercise7() throws IOException {
         try (BufferedReader reader = Files.newBufferedReader(
-                Paths.get("src/main/resources/SonnetI.txt"), StandardCharsets.UTF_8)) {
+                Paths.get("src/main/resources/kata2.txt"), StandardCharsets.UTF_8)) {
             System.out.println(reader.
                     lines().
                     flatMap(s -> Stream.of(s.split(WORD_REGEXP))).
