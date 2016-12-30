@@ -28,7 +28,7 @@ public class RandomWords {
      * @throws IOException If the source words file cannot be read
      */
     public RandomWords() throws IOException {
-        try (BufferedReader reader = Files.newBufferedReader(Paths.get("words"))) {
+        try (BufferedReader reader = Files.newBufferedReader(Paths.get("src/main/resources/kata3.txt"))) {
             sourceWords = reader.lines().collect(Collectors.toList());
 
             System.out.println("Loaded " + sourceWords.size() + " words");
@@ -43,7 +43,7 @@ public class RandomWords {
      */
     public List<String> createList(int listSize) {
         Random rand = new Random();
-        List<String> wordList = rand.ints().limit(listSize).mapToObj(randomIndex -> sourceWords.get(randomIndex)).collect(Collectors.toList());
+        List<String> wordList = rand.ints(0, listSize).limit(listSize).mapToObj(sourceWords::get).collect(Collectors.toList());
 
         return wordList;
     }
