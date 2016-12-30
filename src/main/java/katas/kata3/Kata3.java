@@ -6,7 +6,9 @@
 package katas.kata3;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -70,9 +72,16 @@ public class Kata3 {
         final int LIST_SIZE = wordList.size();
         int[][] distances = new int[LIST_SIZE][LIST_SIZE];
 
-        // YOUR CODE HERE
+        getIntStream(0, LIST_SIZE, parallel).forEach(x -> getIntStream(0, LIST_SIZE, parallel).forEach(y -> distances[x][y] = Levenshtein.lev(wordList.get(x), wordList.get(y))));
 
         return distances;
+    }
+
+    private static IntStream getIntStream(int startInclusive, int endExclusive, boolean parallel) {
+        IntStream intStream = IntStream.range(startInclusive, endExclusive);
+        if (parallel)
+            return intStream.parallel();
+        return intStream.parallel();
     }
 
     /**
