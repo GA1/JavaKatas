@@ -92,9 +92,17 @@ public class Kata3 {
      * @return The list processed in whatever way you want
      */
     static List<String> processWords(List<String> wordList, boolean parallel) {
-        // YOUR CODE HERE
+        Stream<String> stream;
+        if (parallel)
+            stream = wordList.parallelStream();
+        else
+            stream = wordList.stream();
 
-        return null;
+        return stream.
+                map(String::toLowerCase).
+                sorted().
+                distinct().
+                collect(Collectors.toList());
     }
 
     /**
@@ -110,7 +118,7 @@ public class Kata3 {
         measure("Sequential", () -> computeLevenshtein(wordList, false));
         measure("Parallel", () -> computeLevenshtein(wordList, true));
 
-//    measure("Sequential", () -> processWords(wordList, false));
-//    measure("Parallel", () -> processWords(wordList, true));
+        measure("Sequential", () -> processWords(wordList, false));
+        measure("Parallel", () -> processWords(wordList, true));
     }
 }
