@@ -7,7 +7,7 @@ import java.util.List;
 
 public class SubAnagramsSolver
 {
-    public static List<Integer> getAnagramIndices(String haystack, String needle)
+    public List<Integer> getAnagramIndices(String haystack, String needle)
     {
         List<Integer> result = new ArrayList<>();
         if (needle.length() == 0)
