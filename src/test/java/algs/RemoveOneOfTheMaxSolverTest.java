@@ -3,6 +3,7 @@ package algs;
 import org.junit.Test;
 
 import java.util.LinkedList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -12,7 +13,7 @@ public class RemoveOneOfTheMaxSolverTest {
 
     private RemoveOneOfTheMaxSolver solver = new RemoveOneOfTheMaxSolver();
     private LinkedList<Integer> nums = new LinkedList<Integer>();
-    private LinkedList<Integer> result = new LinkedList<Integer>();
+    private List<Integer> result = new LinkedList<Integer>();
 
 
     @Test
